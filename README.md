@@ -1,39 +1,28 @@
+# Daniel Lynch 
+## cs50 Spring 2020, Lab 2
 
-Hashtable 
+GitHub username:
+Sensei Panda
+*Please replace this text with any comments you have about the overall assignment.  Your solutions should be in other files as defined by the assignment.*
+Words.c
+This program can take either 1 or no arguments. If no arguments, the program reads in characters line by line from STDIN and prints them out to the console, printing each word on a new line. If a file is given as an argument,
+the program opens the file, reads in the characters, and prints them to a new output file, with one word on each new line. So if this body of text were run through this program through the console, a each new word would be printed out on a new line.
+Chill.c
+ Chill.c is a program that can take a variety of inputs (0,1, or 2) and calculates
+  wind chills based on input temperatures and velocities.
+  Wind chill is the bodily perceived temperature created by the compound effects of cold air and wind.
+  A. The user can enter no input and receive a temp/velocity/wind chill chart.
+  B. The user can enter a temperature and receive velocities and wind chills for that temp.
+  C. The user can enter a temperature and velocity and receive a wind chill.
+  Standard Formula for calculation given:
+  Wind Chill = 35.74 + 0.6215T - 35.75(V^0.16) + 0.4275T(V^0.16)
+Histo.c
 
-WTF is Hashing?
+This program  reads in from stdin a number of integers and groups their frequency into  16 bins 
+of equal size. This is done by finding the max value, and finding 16 different bin sizes based on that max value. Note that the bins don't contain the numbers read in, they only contain the overall frequency in which those numbers occurThe program is then supposed to visually print these to the user. 
 
- Hashing is a quick-and-dirty way to assign items to different ‘mailboxes’. If you think of a mailroom with thousands of pigeon holes to put graded tests back into, this is much like a hash function. Some hash functions operate at random- selecting mailboxes randomly- there might already be tests in that mailbox, but it will add another one. The average amount of tests in each mailbox is called the load factor. The number of mailboxes is usually determined up front- so once a number is chosen, and orders of magnitude higher number of items are assigned, load factor will be high and performance will be poor. 
+Regress.sh 
 
-Hashtable
-
- These mailboxes are “setPointers” in my hashtable program. The actual contents that reside within the mailboxes are sets, as defined in another file. The sets store [key, item] pairs. The functions for Hashtable.c are as follows:
-
-
-
-Create a new hashtable and allocates memory. 
-hashtable_t *hashtable_new(const int num_slots);
- Insert item, identified by key (string), into the given hashtable.
-bool hashtable_insert(hashtable_t *ht, const char *key, void *item);
-Return the item associated with the given key.
-void *hashtable_find(hashtable_t *ht, const char *key);
-Print the whole table; provide the output file and func to print each item.
-void hashtable_print(hashtable_t *ht, FILE *fp, void (*itemprint)(FILE *fp, const char *key, void *item));
-Iterate over all items in the table; in undefined order.
-void hashtable_iterate(hashtable_t *ht, void *arg, void (*itemfunc)(void *arg, const char *key, void *item) );
-Delete hashtable, calling a delete function on each item.
-void hashtable_delete(hashtable_t *ht, void (*itemdelete)(void *item) );
-
-Implementation 
-
-The Hashtable function was unique in that it pulled in other methods from the given file package from the lab. The first header pulled was the JHash.h, where a function called JenkinsHash which returns hash(str) % mod. Each of the items stored in these numbers of pointers are sets, so some set operations were used. 
-
-Assumptions
-
-No NULL values can be added- so you’ll need to have complete information for whatever you’re adding, unlike the scholastic database in our first lab which had many NULL values. Naturally at least 1 pointer address will need to be created. 
-
-Compilation
-
-Needs to have access to set.c/set.h and jash.c/jhash.h either in the same directory with a MAKE file or a master MAKE file can be written at the parent directory to compile all of the files. 
-
+A program that implements regression testing, important to any quality software development process. This program can test each new revision and see if it still performs correctly as before. The program does this by comparing output files or outputs from certain programs and compares them to the output files or output of past versions of the program. The script creates a new directory when run using the date and time format YYYYMMDD.HHMMSS. This new directory is populated with a stderr, stdout, and status file.
+  The program takes a directory name, along with a list of files to test. If the directory given in the argument does not yet exist, it is created. If it does, the testing files are added to that directory.
 
